@@ -4,6 +4,7 @@ class AppColor {
   static const Color azureRadiance = Color(0xFF0B86E6);
   static const Color white = Color(0xFFFFFFFF);
   static const Color osloGray = Color(0xFF949A9A);
+  static const Color athenasGray = Color(0xFFF6F5F8);
 
   static const MaterialColor azureRadianceSwatch = MaterialColor(0xFF0B86E6, _azureRadianceMap);
 
