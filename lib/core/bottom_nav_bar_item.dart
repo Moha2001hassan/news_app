@@ -21,7 +21,8 @@ class BottomNavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: isActive ? Theme.of(context).primaryColor : null,
@@ -33,8 +34,13 @@ class BottomNavBarItem extends StatelessWidget {
               isActive ? activeIconData : iconData,
               color: isActive ? AppColor.white : AppColor.osloGray,
             ),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: isActive? 8 : 0,
+              height: 1,
+            ),
             Text(
-              isActive ? " $text" : "",
+              isActive ? text : "",
               style: TextStyle(
                 color: isActive ? AppColor.white : AppColor.osloGray,
                 fontWeight: FontWeight.bold,
