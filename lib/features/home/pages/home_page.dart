@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/features/home/widgets/home_heading.dart';
+import 'package:news_app/features/home/widgets/home_slider.dart';
 import 'package:news_app/features/home/widgets/home_top_buttons.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,10 +16,11 @@ class HomePage extends StatelessWidget {
             HomeHeading(
               title: "Breaking News",
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: () {},
                 child: const Text("View all"),
               ),
             ),
+            const HomeSlider(),
             const Center(child: Text("Home")),
           ],
         ),
