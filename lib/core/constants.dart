@@ -2,7 +2,7 @@ class Constants {
   static String testLongString = "";
 }
 
-const newsItems = [
+const List<Map<String, dynamic>> newsItems = [
   {
     "source": {"id": "engadget", "name": "Engadget"},
     "author": "Lawrence Bonk",
@@ -74,17 +74,6 @@ const newsItems = [
     "publishedAt": "2024-03-04T17:30:08Z",
     "content":
         "Microsoft has announced\r\n its second games showcase\r\n of 2024 and this one is all about projects from its third-party partners. The second Partner Preview\r\n stream is set for March 6 at 1PM ET. It wi… [+1377 chars]"
-  },
-  {
-    "source": {"id": "engadget", "name": "Engadget"},
-    "author": null,
-    "title": "Apple announces new MacBook Airs with M3 chips",
-    "description": null,
-    "url":
-        "https://www.engadget.com/apple-announces-new-macbook-airs-with-m3-chips-132810766.html",
-    "urlToImage": null,
-    "publishedAt": "2024-03-04T17:22:03.5830164Z",
-    "content": null
   },
   {
     "source": {"id": "engadget", "name": "Engadget"},

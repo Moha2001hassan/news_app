@@ -56,29 +56,30 @@ class HomeSliderItem extends StatelessWidget {
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColor.black08,
-                      AppColor.black06,
-                      AppColor.black00,
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  )
-                ),
+                    gradient: LinearGradient(
+                  colors: [
+                    AppColor.black08,
+                    AppColor.black06,
+                    AppColor.black00,
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                )),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       "$author  ${AppDateFormatters.myY(date)}",
-                      style: const TextStyle(fontSize: 15, color: AppColor.white),
+                      style:
+                          const TextStyle(fontSize: 15, color: AppColor.white),
                       maxLines: 1,
                     ),
                     const SizedBox(height: 8),
                     Text(
                       title,
-                      style: const TextStyle(fontSize: 18, color: AppColor.white),
+                      style:
+                          const TextStyle(fontSize: 18, color: AppColor.white),
                     ),
                   ],
                 ),
