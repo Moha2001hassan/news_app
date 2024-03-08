@@ -39,6 +39,7 @@ class HomeSliderItem extends StatelessWidget {
                 imageAssetsPath,
                 fit: BoxFit.cover,
                 height: double.maxFinite,
+                width: double.maxFinite,
               ),
               Positioned(
                 left: 10,

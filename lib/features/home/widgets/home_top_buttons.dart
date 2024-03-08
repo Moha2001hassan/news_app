@@ -7,9 +7,9 @@ class HomeTopButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+      sliver : SliverToBoxAdapter(
         child: Row(
           children: [
             AppRoundedButton(

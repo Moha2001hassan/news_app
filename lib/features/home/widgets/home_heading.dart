@@ -8,17 +8,19 @@ class HomeHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          const Spacer(),
-          if (trailing != null) trailing!,
-        ],
+      sliver: SliverToBoxAdapter(
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            const Spacer(),
+            if (trailing != null) trailing!,
+          ],
+        ),
       ),
     );
   }

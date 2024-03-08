@@ -10,8 +10,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
+        child: CustomScrollView(
+          slivers: [
             const HomeTopButtons(),
             HomeHeading(
               title: "Breaking News",
@@ -21,7 +21,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const HomeSlider(),
-            const Center(child: Text("Home")),
+            HomeHeading(
+              title: "Breaking News",
+              trailing: TextButton(
+                onPressed: () {},
+                child: const Text("View all"),
+              ),
+            ),
           ],
         ),
       ),
