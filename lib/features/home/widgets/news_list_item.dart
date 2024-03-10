@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/features/home/pages/single_news_item_page.dart';
 import 'package:news_app/theme/app_colors.dart';
 
 import '../../../core/utils/app_date_formatters.dart';
 
 class NewsListItem extends StatelessWidget {
   final String title;
+  final String content;
   final String author;
   final String category;
   final String authorImageAssetPath;
@@ -19,69 +21,87 @@ class NewsListItem extends StatelessWidget {
     required this.authorImageAssetPath,
     required this.imageAssetPath,
     required this.date,
+    required this.content,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              imageAssetPath,
-              width: 135,
-              height: 135,
-              fit: BoxFit.cover,
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SingleNewsItemPage(
+                title: title,
+                content: content,
+                author: author,
+                category: category,
+                authorImageAssetPath: authorImageAssetPath,
+                imageAssetPath: imageAssetPath,
+                date: date),
           ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  category,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppColor.osloGray,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 11,
-                      backgroundImage: NetworkImage(
-                        authorImageAssetPath,
-                      ),
-                    ),
-                    Text(
-                      " $author . ${AppDateFormatters.myY(date)}",
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.osloGray,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                imageAssetPath,
+                width: 135,
+                height: 135,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    category,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.osloGray,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 11,
+                        backgroundImage: NetworkImage(
+                          authorImageAssetPath,
+                        ),
+                      ),
+                      Text(
+                        " $author . ${AppDateFormatters.myY(date)}",
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.osloGray,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -18,6 +18,7 @@ class NewsList extends StatelessWidget {
               authorImageAssetPath: newsItems[i]['urlToImage'].toString(),
               imageAssetPath: newsItems[i]['urlToImage'].toString(),
               date: DateTime.parse(newsItems[i]['publishedAt'].toString()),
+              content: newsItems[i]['content'].toString(),
             );
           } else {
             return null; // or any other handling you prefer for out-of-range indices

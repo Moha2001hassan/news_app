@@ -43,11 +43,13 @@ class _HomeSliderState extends State<HomeSlider> {
               final i = index % newsItems.length;
               return HomeSliderItem(
                 isActive: _pageIndex == i,
-                imageAssetsPath: newsItems[i]['urlToImage'].toString(),
                 category: newsItems[i]['author'].toString(),
                 title: newsItems[i]['title'].toString(),
                 author: newsItems[i]['author'].toString(),
                 date: DateTime.parse(newsItems[i]['publishedAt'].toString()),
+                content: newsItems[i]['content'].toString(),
+                authorImageAssetPath: newsItems[i]['urlToImage'].toString(),
+                imageAssetPath: newsItems[i]['urlToImage'].toString(),
               );
             },
           ),
