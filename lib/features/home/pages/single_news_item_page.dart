@@ -37,11 +37,11 @@ class SingleNewsItemPage extends StatelessWidget {
               category: category,
               imageAssetPath: imageAssetPath,
               date: date,
+              topPadding: topPadding
             ),
           ),
           SliverToBoxAdapter(
             child: Container(
-              //margin: const EdgeInsets.all(3),
               padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
