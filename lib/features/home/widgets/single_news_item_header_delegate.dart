@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/core/app_rounded_button.dart';
 import 'package:news_app/core/app_rounded_button_blur.dart';
 import 'package:news_app/core/utils/app_date_formatters.dart';
-
 import '../../../theme/app_colors.dart';
 
 class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
@@ -31,6 +29,9 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     final screenWidth = MediaQuery.of(context).size.width;
+    const animationDuration = Duration(milliseconds: 200);
+    final showCategoryDate = shrinkOffset < 100;
+
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -76,26 +77,35 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: const BoxDecoration(
-                gradient: LinearGradient(
-              colors: [
-                AppColor.black08,
-                AppColor.black06,
-                AppColor.black00,
-              ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-            )),
+              gradient: LinearGradient(
+                colors: [
+                  AppColor.black08,
+                  AppColor.black06,
+                  AppColor.black00,
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Chip(
-                  label: Text(
-                    category,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  backgroundColor: Colors.blue,
+                AnimatedSwitcher(
+                  duration: animationDuration,
+                  child: showCategoryDate
+                      ? Chip(
+                          label: Text(
+                            category,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          backgroundColor: Colors.blue,
+                        )
+                      : const SizedBox.shrink(),
                 ),
-                const SizedBox(height: 10),
+                AnimatedContainer(
+                  duration: animationDuration,
+                  height: showCategoryDate ? 10 : 0,
+                ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 35,
                   child: Text(
@@ -106,10 +116,19 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Text(
-                  AppDateFormatters.myY(date),
-                  style: const TextStyle(color: Colors.white70),
-                )
+                AnimatedContainer(
+                  duration: animationDuration,
+                  height: showCategoryDate ? 10 : 0,
+                ),
+                AnimatedSwitcher(
+                  duration: animationDuration,
+                  child: showCategoryDate
+                      ? Text(
+                          AppDateFormatters.myY(date),
+                          style: const TextStyle(color: Colors.white70),
+                        )
+                      : const SizedBox.shrink(),
+                ),
               ],
             ),
           ),
