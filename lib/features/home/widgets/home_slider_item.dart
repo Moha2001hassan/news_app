@@ -52,7 +52,7 @@ class HomeSliderItem extends StatelessWidget {
               alignment: AlignmentDirectional.bottomCenter,
               children: [
                 Container(
-                  color: Colors.blue,
+                  color: AppColor.lightBlue,
                 ),
                 Image.network(
                   imageAssetPath,
@@ -68,7 +68,7 @@ class HomeSliderItem extends StatelessWidget {
                       publisher,
                       style: const TextStyle(color: AppColor.white),
                     ),
-                    backgroundColor: AppColor.azureRadiance,
+                    backgroundColor: AppColor.lightBlue,
                   ),
                 ),
                 Container(

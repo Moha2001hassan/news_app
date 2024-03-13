@@ -11,7 +11,7 @@ class AppRoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(50),
-      color: AppColor.athenasGray,
+      color: AppColor.lightGray,
       child: InkWell(
         borderRadius: BorderRadius.circular(50),
         onTap: onTap,

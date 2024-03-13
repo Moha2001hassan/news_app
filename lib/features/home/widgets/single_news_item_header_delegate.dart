@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/core/app_rounded_button_blur.dart';
 import 'package:news_app/core/utils/app_date_formatters.dart';
 import '../../../theme/app_colors.dart';
 import 'item_top_blur_buttons.dart';
@@ -76,9 +74,9 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
                       ? Chip(
                           label: Text(
                             category,
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: AppColor.white),
                           ),
-                          backgroundColor: Colors.blue,
+                          backgroundColor: AppColor.lightBlue,
                         )
                       : const SizedBox.shrink(),
                 ),
@@ -92,7 +90,7 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
                     title,
                     style: const TextStyle(
                       fontSize: 26,
-                      color: Colors.white,
+                      color: AppColor.white,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 3,

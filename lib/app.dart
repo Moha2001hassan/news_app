@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: AppColor.azureRadianceSwatch,
-        primaryColor: AppColor.azureRadiance
+        primaryColor: AppColor.lightBlue
       ),
       home: const MainPage(),
     );

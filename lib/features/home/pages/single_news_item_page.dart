@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/features/home/widgets/single_news_item_header_delegate.dart';
 
+import '../../../theme/app_colors.dart';
+
 class SingleNewsItemPage extends StatelessWidget {
   final String title;
   final String content;
@@ -24,7 +26,7 @@ class SingleNewsItemPage extends StatelessWidget {
     final topPadding = MediaQuery.of(context).padding.top;
     final maxScreenSizeHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColor.black,
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
@@ -42,7 +44,7 @@ class SingleNewsItemPage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+                color: AppColor.white,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

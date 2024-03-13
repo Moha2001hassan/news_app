@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/theme/app_colors.dart';
 import '../../../core/api/news_api_service.dart';
-import '../../browse/widgets/category_news_list.dart';
+import '../widgets/category_news_list.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});
@@ -14,12 +15,12 @@ class _CategoriesPageState extends State<CategoriesPage>
   List<dynamic> articles = [];
 
   late TabController _tabController;
-  List<String> newsCategories = ['sports', 'politics', 'health', 'technology'];
+  List<String> newsCategories = ['politics', 'football', 'health', 'technology'];
   String selectedTabContent = 'politics';
 
   final List<Tab> myTabs = <Tab>[
-    const Tab(text: 'Sports'),
     const Tab(text: 'Politics'),
+    const Tab(text: 'Sports'),
     const Tab(text: 'Health'),
     const Tab(text: 'Technology')
   ];
@@ -46,9 +47,9 @@ class _CategoriesPageState extends State<CategoriesPage>
             TabBar(
                 controller: _tabController,
                 tabs: myTabs,
-                dividerColor: Colors.grey,
-                indicatorColor: Colors.blue,
-                labelColor: Colors.blue,
+                dividerColor: AppColor.darkGray,
+                indicatorColor: AppColor.lightBlue,
+                labelColor: AppColor.lightBlue,
                 onTap: (index) {
                   // Fetch news articles when the user switches tabs
                   fetchNews(newsCategories[index]).then((news) {

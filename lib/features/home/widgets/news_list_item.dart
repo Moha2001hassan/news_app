@@ -73,7 +73,7 @@ class NewsListItem extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppColor.osloGray,
+                            color: AppColor.darkGray,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -82,7 +82,7 @@ class NewsListItem extends StatelessWidget {
                       const Spacer(),
                       const Icon(
                         Icons.bookmark_outline,
-                        color: AppColor.osloGray,
+                        color: AppColor.darkGray,
                       ),
                       const SizedBox(width: 10),
                     ],
@@ -103,7 +103,7 @@ class NewsListItem extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.osloGray,
+                      color: AppColor.darkGray,
                     ),
                   ),
                 ],

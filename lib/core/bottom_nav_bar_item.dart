@@ -32,7 +32,7 @@ class BottomNavBarItem extends StatelessWidget {
           children: [
             Icon(
               isActive ? activeIconData : iconData,
-              color: isActive ? AppColor.white : AppColor.osloGray,
+              color: isActive ? AppColor.white : AppColor.darkGray,
             ),
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
@@ -42,7 +42,7 @@ class BottomNavBarItem extends StatelessWidget {
             Text(
               isActive ? text : "",
               style: TextStyle(
-                color: isActive ? AppColor.white : AppColor.osloGray,
+                color: isActive ? AppColor.white : AppColor.darkGray,
                 fontWeight: FontWeight.bold,
                 fontSize: 13,
               ),
