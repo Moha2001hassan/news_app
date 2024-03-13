@@ -5,7 +5,7 @@ class SingleNewsItemPage extends StatelessWidget {
   final String title;
   final String content;
   final String author;
-  final String category;
+  final String publisher;
   final String imageAssetPath;
   final DateTime date;
 
@@ -14,7 +14,7 @@ class SingleNewsItemPage extends StatelessWidget {
     required this.title,
     required this.content,
     required this.author,
-    required this.category,
+    required this.publisher,
     required this.imageAssetPath,
     required this.date,
   });
@@ -29,14 +29,13 @@ class SingleNewsItemPage extends StatelessWidget {
         slivers: [
           SliverPersistentHeader(
             delegate: SingleNewsItemHeaderDelegate(
-              maxExtent: maxScreenSizeHeight / 2,
-              minExtent: topPadding + 56,
-              title: title,
-              category: category,
-              imageAssetPath: imageAssetPath,
-              date: date,
-              topPadding: topPadding
-            ),
+                maxExtent: maxScreenSizeHeight / 2,
+                minExtent: topPadding + 56,
+                title: title,
+                category: publisher,
+                imageAssetPath: imageAssetPath,
+                date: date,
+                topPadding: topPadding),
           ),
           SliverToBoxAdapter(
             child: Container(
@@ -45,14 +44,16 @@ class SingleNewsItemPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     textAlign: TextAlign.center,
                     author,
-                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Text(

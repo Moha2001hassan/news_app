@@ -32,27 +32,27 @@ class BottomNavBar extends StatelessWidget {
                   },
                 ),
                 BottomNavBarItem(
-                  text: "Browse",
-                  activeIconData: Icons.language,
-                  iconData: Icons.language_outlined,
+                  text: "Categories",
+                  activeIconData: Icons.category,
+                  iconData: Icons.category_outlined,
                   isActive: currentIndex == 1,
                   onTap: () {
                     onTap(1);
                   },
                 ),
                 BottomNavBarItem(
-                  text: "Bookmark",
-                  activeIconData: Icons.bookmark,
-                  iconData: Icons.bookmark_outline,
+                  text: "Browse",
+                  activeIconData: Icons.language,
+                  iconData: Icons.language_outlined,
                   isActive: currentIndex == 2,
                   onTap: () {
                     onTap(2);
                   },
                 ),
                 BottomNavBarItem(
-                  text: "Profile",
-                  activeIconData: Icons.person,
-                  iconData: Icons.person_outline,
+                  text: "Bookmark",
+                  activeIconData: Icons.bookmark,
+                  iconData: Icons.bookmark_outline,
                   isActive: currentIndex == 3,
                   onTap: () {
                     onTap(3);

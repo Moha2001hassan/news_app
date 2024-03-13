@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/core/app_rounded_button_blur.dart';
 import 'package:news_app/core/utils/app_date_formatters.dart';
 import '../../../theme/app_colors.dart';
+import 'item_top_blur_buttons.dart';
 
 class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
   final String title;
@@ -46,28 +47,7 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
             child: Column(
               children: [
                 SizedBox(height: topPadding),
-                Row(
-                  children: [
-                    const SizedBox(width: 10),
-                    AppRoundedButtonBlur(
-                      iconData: CupertinoIcons.left_chevron,
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const Spacer(),
-                    AppRoundedButtonBlur(
-                      iconData: CupertinoIcons.bookmark,
-                      onTap: () {},
-                    ),
-                    const SizedBox(width: 10),
-                    AppRoundedButtonBlur(
-                      iconData: Icons.more_horiz,
-                      onTap: () {},
-                    ),
-                    const SizedBox(width: 10),
-                  ],
-                ),
+                const ItemTopBlurButtons(),
               ],
             ),
           ),
@@ -111,9 +91,12 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
                   child: Text(
                     title,
                     style: const TextStyle(
-                        fontSize: 26,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 26,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 AnimatedContainer(

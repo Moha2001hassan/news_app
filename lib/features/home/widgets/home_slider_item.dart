@@ -6,7 +6,7 @@ import '../pages/single_news_item_page.dart';
 
 class HomeSliderItem extends StatelessWidget {
   final bool isActive;
-  final String category;
+  final String publisher;
   final String title;
   final String content;
   final String imageAssetPath;
@@ -16,7 +16,7 @@ class HomeSliderItem extends StatelessWidget {
   const HomeSliderItem({
     super.key,
     required this.isActive,
-    required this.category,
+    required this.publisher,
     required this.title,
     required this.author,
     required this.date,
@@ -35,7 +35,7 @@ class HomeSliderItem extends StatelessWidget {
                 title: title,
                 content: content,
                 author: author,
-                category: category,
+                publisher: publisher,
                 imageAssetPath: imageAssetPath,
                 date: date),
           ),
@@ -65,7 +65,7 @@ class HomeSliderItem extends StatelessWidget {
                   top: 7,
                   child: Chip(
                     label: Text(
-                      category,
+                      publisher,
                       style: const TextStyle(color: AppColor.white),
                     ),
                     backgroundColor: AppColor.azureRadiance,
@@ -89,16 +89,21 @@ class HomeSliderItem extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "$author  ${AppDateFormatters.myY(date)}",
+                        title,
                         style: const TextStyle(
-                            fontSize: 15, color: AppColor.white),
-                        maxLines: 1,
+                          fontSize: 18,
+                          color: AppColor.white,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        title,
+                        " ${AppDateFormatters.myY(date)} - $author",
                         style: const TextStyle(
-                            fontSize: 18, color: AppColor.white),
+                          fontSize: 12,
+                          color: AppColor.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 1,
                       ),
                     ],
                   ),

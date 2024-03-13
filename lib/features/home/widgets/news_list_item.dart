@@ -33,7 +33,7 @@ class NewsListItem extends StatelessWidget {
               title: title,
               content: content,
               author: author,
-              category: category,
+              publisher: category,
               imageAssetPath: imageUrl,
               date: date,
             ),
@@ -78,13 +78,15 @@ class NewsListItem extends StatelessWidget {
                       const SizedBox(width: 10),
                     ],
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 3),
                   Text(
                     title,
                     style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 5),
                   Text(

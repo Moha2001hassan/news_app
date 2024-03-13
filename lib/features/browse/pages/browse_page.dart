@@ -15,13 +15,13 @@ class _BrowsePageState extends State<BrowsePage>
   List<dynamic> articles = [];
 
   late TabController _tabController;
-  List<String> tabContent = ['Tab 1 Content', 'Tab 2 Content', 'Tab 3 Content'];
-  String selectedTabContent = 'Tab 1 Content';
+  List<String> newsCategories = ['sports', 'politics', 'health', 'technology'];
+  String selectedTabContent = 'sports';
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
     _tabController.addListener(_updateSelectedTabContent);
 
     fetchNews().then((news) {
@@ -36,7 +36,7 @@ class _BrowsePageState extends State<BrowsePage>
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 7),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -44,9 +44,10 @@ class _BrowsePageState extends State<BrowsePage>
               TabBar(
                 controller: _tabController,
                 tabs: const [
-                  Tab(text: 'Tab 1'),
-                  Tab(text: 'Tab 2'),
-                  Tab(text: 'Tab 3'),
+                  Tab(text: 'Sports'),
+                  Tab(text: 'Politics'),
+                  Tab(text: 'Health'),
+                  Tab(text: 'Technology'),
                 ],
               ),
               Expanded(
@@ -62,7 +63,7 @@ class _BrowsePageState extends State<BrowsePage>
 
   void _updateSelectedTabContent() {
     setState(() {
-      selectedTabContent = tabContent[_tabController.index];
+      selectedTabContent = newsCategories[_tabController.index];
     });
   }
 

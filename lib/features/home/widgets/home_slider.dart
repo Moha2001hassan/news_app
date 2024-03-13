@@ -36,19 +36,19 @@ class _HomeSliderState extends State<HomeSlider> {
             controller: _pageController,
             onPageChanged: (value) {
               setState(() {
-                _pageIndex = value % newsItems.length;
+                _pageIndex = value % sliderNewsList.length;
               });
             },
             itemBuilder: (context, index) {
-              final i = index % newsItems.length;
+              final i = index % sliderNewsList.length;
               return HomeSliderItem(
                 isActive: _pageIndex == i,
-                category: newsItems[i]['author'].toString(),
-                title: newsItems[i]['title'].toString(),
-                author: newsItems[i]['author'].toString(),
-                date: DateTime.parse(newsItems[i]['publishedAt'].toString()),
-                content: newsItems[i]['content'].toString(),
-                imageAssetPath: newsItems[i]['urlToImage'].toString(),
+                publisher: sliderNewsList[i]['source']['name'].toString(),
+                title: sliderNewsList[i]['title'].toString(),
+                author: sliderNewsList[i]['author'].toString(),
+                date: DateTime.parse(sliderNewsList[i]['publishedAt'].toString()),
+                content: sliderNewsList[i]['content'].toString(),
+                imageAssetPath: sliderNewsList[i]['urlToImage'].toString(),
               );
             },
           ),
@@ -59,7 +59,7 @@ class _HomeSliderState extends State<HomeSlider> {
           alignment: AlignmentDirectional.center,
           child: SmoothPageIndicator(
             controller: _pageController,
-            count: newsItems.length,
+            count: sliderNewsList.length,
             effect: const ExpandingDotsEffect(
               dotHeight: 10,
               dotWidth: 10,
