@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news_app/core/bottom_nav_bar.dart';
 import 'package:news_app/features/bookmarks/pages/bookmarks_page.dart';
 import 'package:news_app/features/browse/pages/browse_page.dart';
+import 'package:news_app/features/categories/pages/categories_page.dart';
 import 'package:news_app/features/home/pages/home_page.dart';
-import 'package:news_app/features/profile/pages/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -40,9 +40,9 @@ class _MainPageState extends State<MainPage> {
         },
         children: const [
           HomePage(),
+          CategoriesPage(),
           BrowsePage(),
           BookmarksPage(),
-          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavBar(

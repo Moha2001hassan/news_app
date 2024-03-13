@@ -19,7 +19,7 @@ class CategoryNewsList extends StatelessWidget {
           title: newsItem['title'].toString(),
           content: newsItem['content'].toString(),
           author: newsItem['author'].toString(),
-          category: newsItem['source']['name'].toString(),
+          publisher: newsItem['source']['name'].toString(),
           imageUrl: newsItem['urlToImage'].toString(),
           date: DateTime.parse(newsItem['publishedAt'].toString()),
         );

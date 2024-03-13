@@ -24,7 +24,7 @@ class _BrowsePageState extends State<BrowsePage>
     _tabController = TabController(length: 4, vsync: this);
     _tabController.addListener(_updateSelectedTabContent);
 
-    fetchNews().then((news) {
+    fetchNews(selectedTabContent).then((news) {
       setState(() {
         articles = news;
       });

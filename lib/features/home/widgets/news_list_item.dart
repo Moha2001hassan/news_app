@@ -8,7 +8,7 @@ class NewsListItem extends StatelessWidget {
   final String title;
   final String content;
   final String author;
-  final String category;
+  final String publisher;
   final String imageUrl;
   final DateTime date;
 
@@ -16,7 +16,7 @@ class NewsListItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.author,
-    required this.category,
+    required this.publisher,
     required this.imageUrl,
     required this.date,
     required this.content,
@@ -33,7 +33,7 @@ class NewsListItem extends StatelessWidget {
               title: title,
               content: content,
               author: author,
-              publisher: category,
+              publisher: publisher,
               imageAssetPath: imageUrl,
               date: date,
             ),
@@ -45,13 +45,17 @@ class NewsListItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                imageUrl,
-                width: 135,
-                height: 135,
-                fit: BoxFit.cover,
+            SizedBox(
+              width: 135,
+              height: 135,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  imageUrl,
+                  width: 135,
+                  height: 135,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(width: 8),
@@ -62,12 +66,17 @@ class NewsListItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        category,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.osloGray,
+                      SizedBox(
+                        width: 150,
+                        child: Text(
+                          publisher,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.osloGray,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const Spacer(),
