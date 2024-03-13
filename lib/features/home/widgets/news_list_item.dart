@@ -9,8 +9,7 @@ class NewsListItem extends StatelessWidget {
   final String content;
   final String author;
   final String category;
-  final String authorImageAssetPath;
-  final String imageAssetPath;
+  final String imageUrl;
   final DateTime date;
 
   const NewsListItem({
@@ -18,8 +17,7 @@ class NewsListItem extends StatelessWidget {
     required this.title,
     required this.author,
     required this.category,
-    required this.authorImageAssetPath,
-    required this.imageAssetPath,
+    required this.imageUrl,
     required this.date,
     required this.content,
   });
@@ -32,13 +30,13 @@ class NewsListItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => SingleNewsItemPage(
-                title: title,
-                content: content,
-                author: author,
-                category: category,
-                authorImageAssetPath: authorImageAssetPath,
-                imageAssetPath: imageAssetPath,
-                date: date),
+              title: title,
+              content: content,
+              author: author,
+              category: category,
+              imageAssetPath: imageUrl,
+              date: date,
+            ),
           ),
         );
       },
@@ -50,7 +48,7 @@ class NewsListItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                imageAssetPath,
+                imageUrl,
                 width: 135,
                 height: 135,
                 fit: BoxFit.cover,
@@ -62,13 +60,23 @@ class NewsListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    category,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.osloGray,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        category,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.osloGray,
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.bookmark_outline,
+                        color: AppColor.osloGray,
+                      ),
+                      const SizedBox(width: 10),
+                    ],
                   ),
                   const SizedBox(height: 5),
                   Text(
@@ -79,23 +87,13 @@ class NewsListItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 11,
-                        backgroundImage: NetworkImage(
-                          authorImageAssetPath,
-                        ),
-                      ),
-                      Text(
-                        " $author . ${AppDateFormatters.myY(date)}",
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.osloGray,
-                        ),
-                      ),
-                    ],
+                  Text(
+                    AppDateFormatters.myY(date),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.osloGray,
+                    ),
                   ),
                 ],
               ),

@@ -6,7 +6,6 @@ class SingleNewsItemPage extends StatelessWidget {
   final String content;
   final String author;
   final String category;
-  final String authorImageAssetPath;
   final String imageAssetPath;
   final DateTime date;
 
@@ -16,7 +15,6 @@ class SingleNewsItemPage extends StatelessWidget {
     required this.content,
     required this.author,
     required this.category,
-    required this.authorImageAssetPath,
     required this.imageAssetPath,
     required this.date,
   });

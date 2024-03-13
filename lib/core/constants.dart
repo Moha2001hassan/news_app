@@ -1,5 +1,8 @@
 class Constants {
   static String testLongString = "";
+  static const String BASE_URL = 'https://newsapi.org/v2/';
+  static const String API_KEY = '39accd08f91c4e4d895020d8e267ce37';
+
 }
 
 const List<Map<String, dynamic>> newsItems = [

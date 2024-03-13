@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/app_rounded_button.dart';
-import '../widgets/search_bar.dart';
+import 'package:news_app/core/api/news_api_service.dart';
+import '../widgets/browse_screen_header.dart';
+import '../widgets/category_news_list.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({super.key});
@@ -13,12 +12,23 @@ class BrowsePage extends StatefulWidget {
 
 class _BrowsePageState extends State<BrowsePage>
     with SingleTickerProviderStateMixin {
+  List<dynamic> articles = [];
+
   late TabController _tabController;
+  List<String> tabContent = ['Tab 1 Content', 'Tab 2 Content', 'Tab 3 Content'];
+  String selectedTabContent = 'Tab 1 Content';
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(_updateSelectedTabContent);
+
+    fetchNews().then((news) {
+      setState(() {
+        articles = news;
+      });
+    });
   }
 
   @override
@@ -26,30 +36,11 @@ class _BrowsePageState extends State<BrowsePage>
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 7),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppRoundedButton(
-                iconData: CupertinoIcons.left_chevron,
-                onTap: () {},
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Discover",
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Text(
-                "News from all around the world",
-                style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 25),
-              const SearchBarTextField(),
-              const SizedBox(height: 15),
+              const BrowseScreenHeader(),
               TabBar(
                 controller: _tabController,
                 tabs: const [
@@ -59,20 +50,20 @@ class _BrowsePageState extends State<BrowsePage>
                 ],
               ),
               Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: const [
-                    Center(child: Text('Tab 1 Content')),
-                    Center(child: Text('Tab 2 Content')),
-                    Center(child: Text('Tab 3 Content')),
-                  ],
-                ),
-              ),
+                child: CategoryNewsList(
+                    newsList: articles.cast<Map<String, dynamic>>()),
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _updateSelectedTabContent() {
+    setState(() {
+      selectedTabContent = tabContent[_tabController.index];
+    });
   }
 
   @override

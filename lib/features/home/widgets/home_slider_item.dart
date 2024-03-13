@@ -9,7 +9,6 @@ class HomeSliderItem extends StatelessWidget {
   final String category;
   final String title;
   final String content;
-  final String authorImageAssetPath;
   final String imageAssetPath;
   final String author;
   final DateTime date;
@@ -22,7 +21,6 @@ class HomeSliderItem extends StatelessWidget {
     required this.author,
     required this.date,
     required this.content,
-    required this.authorImageAssetPath,
     required this.imageAssetPath,
   });
 
@@ -38,7 +36,6 @@ class HomeSliderItem extends StatelessWidget {
                 content: content,
                 author: author,
                 category: category,
-                authorImageAssetPath: authorImageAssetPath,
                 imageAssetPath: imageAssetPath,
                 date: date),
           ),

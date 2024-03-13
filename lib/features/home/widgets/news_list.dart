@@ -15,8 +15,7 @@ class NewsList extends StatelessWidget {
               title: newsItems[i]['title'].toString(),
               author: newsItems[i]['author'].toString(),
               category: newsItems[i]['source']!['name'].toString(),
-              authorImageAssetPath: newsItems[i]['urlToImage'].toString(),
-              imageAssetPath: newsItems[i]['urlToImage'].toString(),
+              imageUrl: newsItems[i]['urlToImage'].toString(),
               date: DateTime.parse(newsItems[i]['publishedAt'].toString()),
               content: newsItems[i]['content'].toString(),
             );
