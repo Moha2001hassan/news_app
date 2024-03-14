@@ -14,12 +14,24 @@ class BrowsePage extends StatefulWidget {
 class _BrowsePageState extends State<BrowsePage>
     with SingleTickerProviderStateMixin {
   List<dynamic> articles = [];
+  String searchQuery = "Egypt";
 
   @override
   void initState() {
     super.initState();
 
-    fetchNews("Egypt").then((news) {
+    fetchNews(searchQuery).then((news) {
+      setState(() {
+        articles = news;
+      });
+    });
+  }
+
+  void searchNews(String query) {
+    setState(() {
+      searchQuery = query;
+    });
+    fetchNews(query).then((news) {
       setState(() {
         articles = news;
       });
@@ -36,7 +48,7 @@ class _BrowsePageState extends State<BrowsePage>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const BrowseScreenHeader(),
-              const SearchBarTextField(),
+              SearchBarTextField(onSearch: searchNews),
               Expanded(
                 child: CategoryNewsList(
                     newsList: articles.cast<Map<String, dynamic>>()),
