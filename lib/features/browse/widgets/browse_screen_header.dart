@@ -1,30 +1,31 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../core/app_rounded_button.dart';
 
 class BrowseScreenHeader extends StatelessWidget {
   const BrowseScreenHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppRoundedButton(
-            iconData: CupertinoIcons.left_chevron,
-            onTap: () {},
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Browse Page",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
-          const SizedBox(height: 15),
-          const Text(
+          SizedBox(height: 5),
+          Text(
             "Discover",
-            style: TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 28),
           ),
-          const Text(
+          Text(
             "News from all around the world",
             style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
           ),

@@ -42,8 +42,9 @@ class _BrowsePageState extends State<BrowsePage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 0),
+          width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -51,7 +52,8 @@ class _BrowsePageState extends State<BrowsePage>
               SearchBarTextField(onSearch: searchNews),
               Expanded(
                 child: CategoryNewsList(
-                    newsList: articles.cast<Map<String, dynamic>>()),
+                  newsList: articles.cast<Map<String, dynamic>>(),
+                ),
               )
             ],
           ),
