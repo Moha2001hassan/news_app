@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/features/home/widgets/home_heading.dart';
-import 'package:news_app/features/home/widgets/home_slider.dart';
-import 'package:news_app/features/home/widgets/home_top_buttons.dart';
-import 'package:news_app/features/home/widgets/news_list.dart';
+
+import '../widgets/home_heading.dart';
+import '../widgets/home_slider.dart';
+import '../widgets/home_top_buttons.dart';
+import '../widgets/news_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

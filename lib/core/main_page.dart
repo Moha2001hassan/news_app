@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/bottom_nav_bar.dart';
-import 'package:news_app/features/bookmarks/pages/bookmarks_page.dart';
-import 'package:news_app/features/browse/pages/browse_page.dart';
-import 'package:news_app/features/categories/pages/categories_page.dart';
-import 'package:news_app/features/home/pages/home_page.dart';
+
+import '../features/presentation/bookmarks/pages/bookmarks_page.dart';
+import '../features/presentation/browse/pages/browse_page.dart';
+import '../features/presentation/categories/pages/categories_page.dart';
+import '../features/presentation/home/pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/constants.dart';
-import 'package:news_app/features/home/widgets/news_list_item.dart';
+import 'news_list_item.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({super.key});

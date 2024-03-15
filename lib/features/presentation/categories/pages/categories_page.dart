@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/theme/app_colors.dart';
-import '../../../core/api/news_api_service.dart';
+import '../../../../core/api/news_api_service.dart';
 import '../widgets/category_news_list.dart';
 
 class CategoriesPage extends StatefulWidget {
