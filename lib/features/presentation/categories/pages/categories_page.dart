@@ -47,53 +47,56 @@ class _CategoriesPageState extends State<CategoriesPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              child: Text(
-                "Categories Page",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: Text(
+                  "Categories Page",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                elevation: 5,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: TabBar(
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: BoxDecoration(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  elevation: 5,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
-                      color: AppColor.lightBlue,
                     ),
-                    controller: _tabController,
-                    tabs: myTabs,
-                    labelColor: Colors.white,
-                    labelPadding: const EdgeInsets.symmetric(horizontal: 1),
-                    onTap: (index) {
-                      fetchNews(newsCategories[index]).then((news) {
-                        setState(() {
-                          articles = news.cast<Map<String, dynamic>>();
+                    child: TabBar(
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: AppColor.lightBlue,
+                      ),
+                      controller: _tabController,
+                      tabs: myTabs,
+                      labelColor: Colors.white,
+                      labelPadding: const EdgeInsets.symmetric(horizontal: 1),
+                      onTap: (index) {
+                        fetchNews(newsCategories[index]).then((news) {
+                          setState(() {
+                            articles = news.cast<Map<String, dynamic>>();
+                          });
                         });
-                      });
-                    },
+                      },
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: CategoryNewsList(
-                newsList: articles.cast<Map<String, dynamic>>(),
-              ),
-            )
-          ],
+              Expanded(
+                child: CategoryNewsList(
+                  newsList: articles.cast<Map<String, dynamic>>(),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

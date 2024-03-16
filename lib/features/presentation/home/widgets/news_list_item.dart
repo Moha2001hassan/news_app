@@ -29,21 +29,6 @@ class NewsListItem extends StatefulWidget {
 }
 
 class _NewsListItemState extends State<NewsListItem> {
-  bool isSaved = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _checkSavedState();
-  }
-
-  void _checkSavedState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool saved = prefs.getBool(widget.title) ?? false;
-    setState(() {
-      isSaved = saved;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,15 +60,15 @@ class _NewsListItemState extends State<NewsListItem> {
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(widget.imageUrl,
                           width: 135, height: 135, fit: BoxFit.cover))),
-              const SizedBox(width: 8),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(children: [
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
                       SizedBox(
-                          width: 150,
+                          width: 160,
                           child: Text(widget.publisher,
                               style: const TextStyle(
                                   fontSize: 18,
@@ -91,30 +76,22 @@ class _NewsListItemState extends State<NewsListItem> {
                                   color: AppColor.darkGray),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis)),
-                      const Spacer(),
-                      IconButton(
-                          icon: isSaved
-                              ? const Icon(Icons.bookmark)
-                              : const Icon(Icons.bookmark_outline),
-                          onPressed: () {
-                            _toggleSaved();
-                          })
-                    ]),
-                    Text(widget.title,
+                      Text(widget.title,
+                          style: const TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis),
+                      const SizedBox(height: 5),
+                      Text(
+                        AppDateFormatters.myY(widget.date),
                         style: const TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.bold),
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis),
-                    const SizedBox(height: 5),
-                    Text(
-                      AppDateFormatters.myY(widget.date),
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.darkGray,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.darkGray,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -122,30 +99,5 @@ class _NewsListItemState extends State<NewsListItem> {
         ),
       ),
     );
-  }
-
-  void _toggleSaved() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      isSaved = !isSaved;
-    });
-
-    if (isSaved) {
-      String itemJson = jsonEncode({
-        'title': widget.title,
-        'author': widget.author,
-        'publisher': widget.publisher,
-        'imageUrl': widget.imageUrl,
-        'date': widget.date.toIso8601String(), // Convert DateTime to string
-        'content': widget.content
-      });
-      // Save the JSON string
-      prefs.setString(widget.title, itemJson);
-      print('Article saved');
-    } else {
-      // Remove the saved item
-      prefs.remove(widget.title);
-      print('Article removed from saved');
-    }
   }
 }

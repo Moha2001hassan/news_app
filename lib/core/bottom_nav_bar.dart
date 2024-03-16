@@ -49,15 +49,6 @@ class BottomNavBar extends StatelessWidget {
                     onTap(2);
                   },
                 ),
-                BottomNavBarItem(
-                  text: "Bookmark",
-                  activeIconData: Icons.bookmark,
-                  iconData: Icons.bookmark_outline,
-                  isActive: currentIndex == 3,
-                  onTap: () {
-                    onTap(3);
-                  },
-                ),
               ],
             ),
             const SizedBox(height: 13),

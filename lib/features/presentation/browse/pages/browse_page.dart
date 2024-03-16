@@ -11,8 +11,7 @@ class BrowsePage extends StatefulWidget {
   State<BrowsePage> createState() => _BrowsePageState();
 }
 
-class _BrowsePageState extends State<BrowsePage>
-    with SingleTickerProviderStateMixin {
+class _BrowsePageState extends State<BrowsePage> {
   List<dynamic> articles = [];
   String searchQuery = "Egypt";
 
@@ -43,7 +42,7 @@ class _BrowsePageState extends State<BrowsePage>
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

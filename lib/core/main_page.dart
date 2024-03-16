@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/bottom_nav_bar.dart';
-
-import '../features/presentation/bookmarks/pages/bookmarks_page.dart';
 import '../features/presentation/browse/pages/browse_page.dart';
 import '../features/presentation/categories/pages/categories_page.dart';
 import '../features/presentation/home/pages/home_page.dart';
@@ -43,7 +41,6 @@ class _MainPageState extends State<MainPage> {
           HomePage(),
           CategoriesPage(),
           BrowsePage(),
-          BookmarksPage(),
         ],
       ),
       bottomNavigationBar: BottomNavBar(
