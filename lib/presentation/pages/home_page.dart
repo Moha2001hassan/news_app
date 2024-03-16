@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/home_heading.dart';
 import '../widgets/home_slider.dart';
 import '../widgets/home_top_buttons.dart';
-import '../widgets/news_list.dart';
+import '../../utils/home_news_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

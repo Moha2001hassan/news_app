@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/bottom_nav_bar.dart';
-import '../features/presentation/browse/pages/browse_page.dart';
-import '../features/presentation/categories/pages/categories_page.dart';
-import '../features/presentation/home/pages/home_page.dart';
+import 'pages/browse_page.dart';
+import 'pages/categories_page.dart';
+import 'pages/home_page.dart';
+import 'widgets/bottom_nav_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

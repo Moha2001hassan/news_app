@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:news_app/theme/app_colors.dart';
+import 'package:news_app/presentation/theme/app_colors.dart';
 
 class AppRoundedButtonBlur extends StatelessWidget {
   final Function()? onTap;

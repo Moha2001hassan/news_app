@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/api/news_api_service.dart';
+import '../../data/source/news_api_service.dart';
+import '../../utils/news_list_generator.dart';
 import '../widgets/browse_screen_header.dart';
-import '../../categories/widgets/category_news_list.dart';
 import '../widgets/search_bar.dart';
 
 class BrowsePage extends StatefulWidget {
@@ -18,7 +18,6 @@ class _BrowsePageState extends State<BrowsePage> {
   @override
   void initState() {
     super.initState();
-
     fetchNews(searchQuery).then((news) {
       setState(() {
         articles = news;
@@ -50,7 +49,7 @@ class _BrowsePageState extends State<BrowsePage> {
               const BrowseScreenHeader(),
               SearchBarTextField(onSearch: searchNews),
               Expanded(
-                child: CategoryNewsList(
+                child: NewsListGenerator(
                   newsList: articles.cast<Map<String, dynamic>>(),
                 ),
               )

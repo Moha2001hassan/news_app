@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../constants.dart';
+import '../../utils/constants.dart';
 
 Future<List<dynamic>> fetchNews(String query) async {
   String apiUrl =
@@ -11,12 +11,14 @@ Future<List<dynamic>> fetchNews(String query) async {
 
     if (response.statusCode == 200) {
       final List<dynamic> articles = jsonDecode(response.body)['articles'];
-      return articles.where((article) => article['urlToImage'] != null).toList();
+      return articles
+          .where((article) => article['urlToImage'] != null)
+          .toList();
     } else {
       throw Exception('Failed to load news');
     }
   } catch (e) {
-    print(e);
+    //print(e);
     return [];
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/app_rounded_button.dart';
+import 'app_rounded_button.dart';
 
 class HomeTopButtons extends StatelessWidget {
   const HomeTopButtons({super.key});

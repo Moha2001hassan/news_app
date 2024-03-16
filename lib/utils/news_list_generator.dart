@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../home/widgets/news_list_item.dart';
+import '../presentation/widgets/news_list_item.dart';
 
-class CategoryNewsList extends StatelessWidget {
+class NewsListGenerator extends StatelessWidget {
   final List<Map<String, dynamic>> newsList;
 
-  const CategoryNewsList({
+  const NewsListGenerator({
     Key? key,
     required this.newsList,
   }) : super(key: key);

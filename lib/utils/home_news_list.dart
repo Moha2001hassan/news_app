@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/constants.dart';
-import 'news_list_item.dart';
+import 'package:news_app/utils/constants.dart';
+import '../presentation/widgets/news_list_item.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({super.key});
@@ -20,7 +20,7 @@ class NewsList extends StatelessWidget {
               content: sliderNewsList[i]['content'].toString(),
             );
           } else {
-            return null; // or any other handling you prefer for out-of-range indices
+            return null;
           }
         },
       ),

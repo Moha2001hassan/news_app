@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:news_app/theme/app_colors.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../../core/utils/app_date_formatters.dart';
+import 'package:news_app/presentation/theme/app_colors.dart';
+import '../../utils/app_date_formatters.dart';
 import '../pages/single_news_item_page.dart';
 
 class NewsListItem extends StatefulWidget {

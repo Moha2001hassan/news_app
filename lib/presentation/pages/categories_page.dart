@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/theme/app_colors.dart';
-import '../../../../core/api/news_api_service.dart';
-import '../widgets/category_news_list.dart';
+import 'package:news_app/presentation/theme/app_colors.dart';
+import '../../data/source/news_api_service.dart';
+import '../../utils/news_list_generator.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});
@@ -91,7 +91,7 @@ class _CategoriesPageState extends State<CategoriesPage>
                 ),
               ),
               Expanded(
-                child: CategoryNewsList(
+                child: NewsListGenerator(
                   newsList: articles.cast<Map<String, dynamic>>(),
                 ),
               )

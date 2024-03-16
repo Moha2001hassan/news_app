@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_date_formatters.dart';
-import 'package:news_app/theme/app_colors.dart';
-
-import '../pages/single_news_item_page.dart';
+import 'package:news_app/utils/app_date_formatters.dart';
+import 'package:news_app/presentation/theme/app_colors.dart';
+import '../../../../presentation/pages/single_news_item_page.dart';
 
 class HomeSliderItem extends StatelessWidget {
   final bool isActive;

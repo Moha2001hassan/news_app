@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/theme/app_colors.dart';
+import 'package:news_app/presentation/theme/app_colors.dart';
 
 class AppRoundedButton extends StatelessWidget {
   final Function()? onTap;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../theme/app_colors.dart';
-import '../widgets/single_news_item_header_delegate.dart';
+import '../theme/app_colors.dart';
+import '../widgets/news_item_header.dart';
 
 class SingleNewsItemPage extends StatelessWidget {
   final String title;
