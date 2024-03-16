@@ -16,6 +16,7 @@ class NewsList extends StatelessWidget {
               author: sliderNewsList[i]['author'].toString(),
               publisher: sliderNewsList[i]['source']!['name'].toString(),
               imageUrl: sliderNewsList[i]['urlToImage'].toString(),
+              url: sliderNewsList[i]['url'].toString(),
               date: DateTime.parse(sliderNewsList[i]['publishedAt'].toString()),
               content: sliderNewsList[i]['content'].toString(),
             );

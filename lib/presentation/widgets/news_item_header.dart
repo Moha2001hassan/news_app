@@ -5,6 +5,8 @@ import '../theme/app_colors.dart';
 
 class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
   final String title;
+  final String url;
+  final String publisher;
   final String category;
   final String imageAssetPath;
   final DateTime date;
@@ -15,6 +17,8 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double minExtent;
 
   const SingleNewsItemHeaderDelegate({
+    required this.url,
+    required this.publisher,
     required this.maxExtent,
     required this.minExtent,
     required this.title,
@@ -45,7 +49,10 @@ class SingleNewsItemHeaderDelegate extends SliverPersistentHeaderDelegate {
             child: Column(
               children: [
                 SizedBox(height: topPadding),
-                const ItemTopBlurButtons(),
+                ItemTopBlurButtons(
+                  url: url,
+                  publisher: publisher,
+                ),
               ],
             ),
           ),

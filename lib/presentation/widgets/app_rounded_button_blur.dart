@@ -25,7 +25,7 @@ class AppRoundedButtonBlur extends StatelessWidget {
             child: SizedBox(
               width: 53,
               height: 53,
-              child: Icon(iconData,color: AppColor.white),
+              child: Icon(iconData,color: AppColor.black),
             ),
           ),
         ),

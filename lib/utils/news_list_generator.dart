@@ -21,6 +21,7 @@ class NewsListGenerator extends StatelessWidget {
           author: newsItem['author'].toString(),
           publisher: newsItem['source']['name'].toString(),
           imageUrl: newsItem['urlToImage'].toString(),
+          url: newsItem['url'].toString(),
           date: DateTime.parse(newsItem['publishedAt'].toString()),
         );
       },

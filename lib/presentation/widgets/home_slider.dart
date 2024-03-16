@@ -50,6 +50,7 @@ class _HomeSliderState extends State<HomeSlider> {
                 date: DateTime.parse(sliderNewsList[i]['publishedAt'].toString()),
                 content: sliderNewsList[i]['content'].toString(),
                 imageAssetPath: sliderNewsList[i]['urlToImage'].toString(),
+                url: sliderNewsList[i]['url'].toString(),
               );
             },
           ),

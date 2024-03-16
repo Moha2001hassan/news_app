@@ -9,6 +9,7 @@ class NewsListItem extends StatefulWidget {
   final String author;
   final String publisher;
   final String imageUrl;
+  final String url;
   final DateTime date;
 
   const NewsListItem(
@@ -18,14 +19,14 @@ class NewsListItem extends StatefulWidget {
       required this.publisher,
       required this.imageUrl,
       required this.date,
-      required this.content});
+      required this.content,
+      required this.url});
 
   @override
   State<NewsListItem> createState() => _NewsListItemState();
 }
 
 class _NewsListItemState extends State<NewsListItem> {
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,12 +35,14 @@ class _NewsListItemState extends State<NewsListItem> {
             context,
             MaterialPageRoute(
                 builder: (context) => SingleNewsItemPage(
-                    title: widget.title,
-                    content: widget.content,
-                    author: widget.author,
-                    publisher: widget.publisher,
-                    imageAssetPath: widget.imageUrl,
-                    date: widget.date)));
+                      title: widget.title,
+                      content: widget.content,
+                      author: widget.author,
+                      publisher: widget.publisher,
+                      imageAssetPath: widget.imageUrl,
+                      date: widget.date,
+                      url: widget.url,
+                    )));
       },
       child: Card(
         elevation: 5,

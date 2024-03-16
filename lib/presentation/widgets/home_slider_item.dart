@@ -6,6 +6,7 @@ import '../../../../presentation/pages/single_news_item_page.dart';
 class HomeSliderItem extends StatelessWidget {
   final bool isActive;
   final String publisher;
+  final String url;
   final String title;
   final String content;
   final String imageAssetPath;
@@ -21,6 +22,7 @@ class HomeSliderItem extends StatelessWidget {
     required this.date,
     required this.content,
     required this.imageAssetPath,
+    required this.url,
   });
 
   @override
@@ -36,7 +38,8 @@ class HomeSliderItem extends StatelessWidget {
                 author: author,
                 publisher: publisher,
                 imageAssetPath: imageAssetPath,
-                date: date),
+                date: date,
+                url: url),
           ),
         );
       },
